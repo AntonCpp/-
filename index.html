@@ -1,0 +1,768 @@
+> Антон:
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Свадебное приглашение</title>
+
+  <!-- Шрифты -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet" />
+  <!-- AOS (анимации при скролле) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* ----- Сброс и базовые стили ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fcf8f4;
+      color: #2c1f14;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* ----- Параллакс-фон на hero ----- */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(145deg, #f5ede4, #fefaf5);
+      border-radius: 50px 50px 30px 30px;
+      margin-bottom: 40px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.05"><circle cx="50" cy="50" r="40" fill="%23b2907a"/><circle cx="150" cy="120" r="60" fill="%23b2907a"/><circle cx="20" cy="160" r="30" fill="%23b2907a"/></svg>') repeat;
+      background-size: 200px 200px;
+      pointer-events: none;
+    }
+
+    .hero .date {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      color: #b2907a;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .hero h1 span {
+      display: inline-block;
+      margin: 0 8px;
+    }
+
+    .hero h1 .ampersand {
+      font-style: italic;
+      color: #b2907a;
+      font-weight: 400;
+    }
+
+    .hero .sub {
+      font-size: 1.3rem;
+      color: #6b4f3b;
+      border-top: 2px solid #e2d4c8;
+      display: inline-block;
+      padding-top: 16px;
+      margin-top: 10px;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    /* ----- Карточки ----- */
+    .card {
+      background: #ffffff;
+      border-radius: 40px;
+      padding: 35px 30px;
+      margin-bottom: 35px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.07);
+    }
+
+    .card h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 25px;
+      color: #2c1f14;
+    }
+
+    .card h2 small {
+      display: block;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      color: #b2907a;
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* ----- Таймер ----- */
+    .timer-section {
+      text-align: center;
+      background: #fff;
+      border-radius: 40px;
+      padding: 30px 20px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.04);
+      margin-bottom: 35px;
+      transition: transform 0.3s;
+    }
+
+    .>Антон: timer-section:hover {
+      transform: scale(1.01);
+    }
+
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      max-width: 450px;
+      margin: 18px auto 0;
+    }
+
+    .timer-item {
+      background: #f5ede4;
+      border-radius: 20px;
+      padding: 12px 5px;
+      transition: background 0.3s;
+    }
+
+    .timer-item:hover {
+      background: #ece0d4;
+    }
+
+    .timer-item .num {
+      display: block;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #2c1f14;
+      line-height: 1.2;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .timer-item .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #7a5f4b;
+    }
+
+    /* ----- Пригласительный текст ----- */
+    .invitation-text {
+      font-size: 1.05rem;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #3d2c1f;
+    }
+
+    .invitation-text p {
+      margin-bottom: 18px;
+    }
+
+    /* ----- Программа ----- */
+    .program-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 450px;
+      margin: 0 auto;
+    }
+
+    .program-item {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed #e8ddd2;
+      transition: padding-left 0.2s;
+    }
+
+    .program-item:hover {
+      padding-left: 8px;
+      border-bottom-color: #b2907a;
+    }
+
+    .program-item .time {
+      font-weight: 600;
+      color: #b2907a;
+    }
+
+    .program-item .desc {
+      text-align: right;
+      color: #3d2c1f;
+    }
+
+    /* ----- Карта ----- */
+    .map-placeholder {
+      background: #e8ddd2;
+      border-radius: 24px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b4f3b;
+      font-weight: 300;
+      margin-bottom: 18px;
+      transition: filter 0.3s;
+    }
+
+    .map-placeholder:hover {
+      filter: brightness(0.96);
+    }
+
+    .map-btn {
+      display: inline-block;
+      background: #2c1f14;
+      color: #fff;
+      padding: 14px 40px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .map-btn:hover {
+      background: #4d3627;
+      transform: scale(1.03);
+    }
+
+    /* ----- Дресс-код ----- */
+    .dress-code-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px 30px;
+      margin-top: 12px;
+    }
+
+    .color-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.3s;
+    }
+
+    .color-swatch:hover {
+      transform: translateY(-6px);
+    }
+
+    .color-swatch .circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 2px solid #e2d4c8;
+      transition: box-shadow 0.3s;
+    }
+
+    .color-swatch:hover .circle {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .color-swatch .name {
+      font-size: 0.85rem;
+      color: #6b4f3b;
+    }
+
+    /* ----- Пожелания ----- */
+    .wish-block {
+      background: #faf7f2;
+      border-radius: 24px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .wish-block p {
+
+      >Антон:
+        margin-bottom: 6px;
+    }
+
+    /* ----- Группа ВК ----- */
+    .vk-btn {
+      display: inline-block;
+      background: #4a76a8;
+      color: #fff;
+      padding: 14px 35px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .vk-btn:hover {
+      background: #3a5f8a;
+      transform: scale(1.04);
+    }
+
+    /* ----- Форма RSVP ----- */
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #2c1f14;
+    }
+
+    .form-group .hint {
+      font-size: 0.85rem;
+      color: #7a5f4b;
+      font-weight: 400;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #e2d4c8;
+      border-radius: 30px;
+      font-size: 1rem;
+      background: #fdfbf9;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #b2907a;
+      box-shadow: 0 0 0 4px rgba(178, 144, 122, 0.12);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 25px;
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .checkbox-group label:hover {
+      color: #b2907a;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #b2907a;
+      cursor: pointer;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 30px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .radio-group label:hover {
+      color: #b2907a;
+    }
+
+    .radio-group input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #b2907a;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      background: #2c1f14;
+      color: white;
+      padding: 16px;
+      border: none;
+      border-radius: 60px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      background: #4d3627;
+      transform: scale(1.01);
+    }
+
+    .form-footnote {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #7a5f4b;
+      margin-top: 18px;
+    }
+
+    .form-footnote strong {
+      color: #2c1f14;
+    }
+
+    /* ----- Футер ----- */
+    .footer {
+      text-align: center;
+      color: #b2907a;
+      font-size: 0.8rem;
+      padding: 25px 0 10px;
+      border-top: 1px solid #e2d4c8;
+      margin-top: 20px;
+    }
+
+    /* ----- Кнопка музыки ----- */
+    .music-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #2c1f14;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      z-index: 999;
+      display: flex;
+
+      >Антон:
+        align-items: center;
+      justify-content: center;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.08) rotate(10deg);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .music-btn.playing {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(178, 144, 122, 0.4);
+      }
+
+      100% {
+        box-shadow: 0 0 0 20px rgba(178, 144, 122, 0);
+      }
+    }
+
+    /* ----- Адаптивность ----- */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+
+      .timer-grid {
+        gap: 8px;
+      }
+
+      .timer-item .num {
+        font-size: 2rem;
+      }
+
+      .card {
+        padding: 24px 16px;
+      }
+
+      .program-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .program-item .desc {
+        text-align: center;
+      }
+
+      .dress-code-grid {
+        gap: 12px;
+      }
+
+      .music-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" data-aos="fade-up" data-aos-duration="1000">
+      <div class="date">15 ИЮНЯ 2026 • 12:00</div>
+      <h1>
+        <span>Даниил</span>
+        <span class="ampersand">&</span>
+        <span>Карина</span>
+      </h1>
+      <div class="sub">Приглашаем вас на нашу свадьбу</div>
+    </section>
+
+    <!-- ===== ТАЙМЕР ===== -->
+    <section class="timer-section" data-aos="fade-up" data-aos-delay="100">
+      <div style="font-size:1.2rem; color:#6b4f3b;">До нашей свадьбы осталось</div>
+      <div class="timer-grid" id="timer">
+        <div class="timer-item"><span class="num" id="days">0</span><span class="label">Дней</span></div>
+        <div class="timer-item"><span class="num" id="hours">0</span><span class="label">Часов</span></div>
+        <div class="timer-item"><span class="num" id="minutes">0</span><span class="label">Минут</span></div>
+        <div class="timer-item"><span class="num" id="seconds">0</span><span class="label">Секунд</span></div>
+      </div>
+    </section>
+
+    <!-- ===== ПРИГЛАШЕНИЕ ===== -->
+    <section class="card" data-aos="fade-up" data-aos-delay="150">
+      <h2>Дорогие гости!</h2>
+      <div class="invitation-text">
+        <p>В нашей жизни произойдет очень важное событие – наша свадьба! Мы верим и надеемся, что этот день станет
+          красивым началом долгой и счастливой жизни.</p>
+        <p>Самые важные «Да» в нашей жизни. И мы хотим, чтобы вы их услышали.</p>
+      </div>
+    </section>
+
+    <!-- ===== ПРОГРАММА ===== -->
+    <section class="card" data-aos="fade-up" data-aos-delay="200">
+      <h2>Программа дня</h2>
+      <div class="program-grid">
+        <div class="program-item"><span class="time">12:00</span><span class="desc">Сбор гостей</span></div>
+        <div class="program-item"><span class="time">12:30</span><span class="desc">Торжественная регистрация</span>
+        </div>
+        <div class="program-item"><span class="time">13:30</span><span class="desc">Фуршет и прогулка</span></div>
+        <div class="program-item"><span class="time">16:00</span><span class="desc">Банкет</span></div>
+        <div class="program-item"><span class="time">20:00</span><span class="desc">Торт и танцы</span></div>
+        <div class="program-item"><span class="time">23:00</span><span class="desc">Завершение (но это не точно)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== МЕСТО ===== -->
+    <section class="card" data-aos="fade-up" data-aos-delay="250">
+      <h2>Место проведения</h2>
+      <div class="map-placeholder">📍 Бутоновка, ул. Салманова, 1</div>
+      <a href="#" class="map-btn" target="_blank">Открыть карту</a>
+    </section>
+
+    <!-- ===== ДРЕСС-КОД ===== -->
+    <section class="card" data-aos="fade-up" data-aos-delay="300">
+      <h2>Дресс-код</h2>
+
+      > Антон:
+      <p style="text-align:center; color:#4d3a2b; margin-bottom:16px;">Мы будем очень признательны, если Вы поддержите
+        стилистику нашего мероприятия в своих вечерних образах.</p>
+      <div class="dress-code-grid">
+        <div class="color-swatch">
+          <div class="circle" style="background:#f5e6d3;"></div><span class="name">Сливочный</span>
+        </div>
+        <div class="color-swatch">
+          <div class="circle" style="background:#d4b8a0;"></div><span class="name">Бежевый</span>
+        </div>
+        <div class="color-swatch">
+          <div class="circle" style="background:#a67c6b;"></div><span class="name">Карамель</span>
+        </div>
+        <div class="color-swatch">
+          <div class="circle" style="background:#6b4c3b;"></div><span class="name">Шоколад</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ПОЖЕЛАНИЯ ===== -->
+    <section class="card" data-aos="fade-up" data-aos-delay="350">
+      <h2>Ваши пожелания</h2>
+      <div class="wish-block">
+        <p>Ваши улыбки и смех подарят нам незабываемое счастье в этот день,</p>
+        <p>а пожелания в конвертах помогут осуществить наши мечты!</p>
+      </div>
+    </section>
+
+    <!-- ===== ГРУППА ВК ===== -->
+    <section class="card" data-aos="fade-up" data-aos-delay="400">
+      <h2>Будем на связи</h2>
+      <div style="text-align:center;">
+        <p style="margin-bottom:16px;">Мы создали группу в ВКонтакте, где будет основная информация по торжеству. А
+          также можно будет добавлять фото и видео со свадьбы.</p>
+        <a href="#" class="vk-btn" target="_blank">Присоединиться к группе</a>
+      </div>
+    </section>
+
+    <!-- ===== ФОРМА (RSVP) ===== -->
+    <section class="card" data-aos="fade-up" data-aos-delay="450">
+      <h2>Подтвердите присутствие</h2>
+      <form id="rsvpForm">
+        <div class="form-group">
+          <label>Ваше имя и фамилия</label>
+          <input type="text" name="name" placeholder="Иван Иванов / Алина Иванова" required>
+        </div>
+
+        <div class="form-group">
+          <label>Планируете ли Вы присутствовать на свадьбе?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="attending" value="yes" required> Да, с удовольствием!</label>
+            <label><input type="radio" name="attending" value="no"> К сожалению, не могу :(</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Уточните Ваши предпочтения в алкоголе:</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="alcohol" value="красное сухое"> Красное сухое</label>
+            <label><input type="checkbox" name="alcohol" value="красное полусладкое"> Красное п/сл</label>
+            <label><input type="checkbox" name="alcohol" value="белое сухое"> Белое сухое</label>
+            <label><input type="checkbox" name="alcohol" value="белое полусладкое"> Белое п/сл</label>
+            <label><input type="checkbox" name="alcohol" value="шампанское сухое"> Шампанское сухое</label>
+            <label><input type="checkbox" name="alcohol" value="шампанское полусладкое"> Шампанское п/сл</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Уточните Ваши предпочтения в еде:</label>
+          <select name="food">
+            <option value="">Выберите...</option>
+            <option value="рыба">Рыба</option>
+            <option value="мясо">Мясо</option>
+            <option value="вегетарианское">Вегетарианское</option>
+            <option value="не важно">Не важно</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Отправить</button>
+        <div class="form-footnote">
+          <strong>*</strong> Поскольку в анкете есть вопросы касательно меню и напитков, просим гостей, которые придут в
+          паре, заполнять форму по отдельности.<br>
+
+          > Антон:
+          Ждём Вашего ответа до <strong>15.06.2026</strong>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== ФУТЕР ===== -->
+    <div class="footer">
+      © Wedding dream - 2026
+    </div>
+
+  </div>
+
+  <!-- ===== МУЗЫКА ===== -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-btn" id="musicToggle" onclick="toggleMusic()">🎵</button>
+
+  <!-- ===== ПОДКЛЮЧЕНИЕ AOS ===== -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Инициализация AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true, // анимация срабатывает только один раз
+      offset: 50
+    });
+
+    // ===== ТАЙМЕР =====
+    function updateTimer() {
+      const target = new Date('2026-06-15T12:00:00').getTime();
+      const now = new Date().getTime();
+      let diff = target - now;
+      if (diff < 0) diff = 0;
+
+      document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById('hours').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById('minutes').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById('seconds').textContent = Math.floor((diff % (1000 * 60)) / 1000);
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    // ===== МУЗЫКА =====
+    let musicPlaying = false;
+    const music = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicToggle');
+
+    function toggleMusic() {
+      if (musicPlaying) {
+        music.pause();
+        musicPlaying = false;
+        musicBtn.classList.remove('playing');
+        musicBtn.textContent = '🎵';
+      } else {
+        music.play().catch(() => { });
+        musicPlaying = true;
+        musicBtn.classList.add('playing');
+        musicBtn.textContent = '⏸';
+      }
+    }
+
+    // ===== ФОРМА (отправка) =====
+    document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Спасибо! Мы ждём вас на нашей свадьбе ❤️');
+      this.reset();
+    });
+  </script>
+
+</body>
+
+</html>
