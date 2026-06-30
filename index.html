@@ -111,8 +111,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(160deg, rgba(154, 133, 104, 0.72), rgba(61, 53, 48, 0.82)),
-        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='0.6'%3E%3Cpath d='M40 8 Q52 20 40 32 Q28 20 40 8'/%3E%3Cpath d='M8 40 Q20 52 32 40 Q20 28 8 40'/%3E%3Cpath d='M40 48 Q52 60 40 72 Q28 60 40 48'/%3E%3Cpath d='M48 40 Q60 52 72 40 Q60 28 48 40'/%3E%3C/g%3E%3C/svg%3E");
+        linear-gradient(160deg, rgba(245, 239, 230, 0.85), rgba(255, 252, 249, 0.95)),
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%239a8568' stroke-opacity='0.06' stroke-width='0.6'%3E%3Cpath d='M40 8 Q52 20 40 32 Q28 20 40 8'/%3E%3Cpath d='M8 40 Q20 52 32 40 Q20 28 8 40'/%3E%3Cpath d='M40 48 Q52 60 40 72 Q28 60 40 48'/%3E%3Cpath d='M48 40 Q60 52 72 40 Q60 28 48 40'/%3E%3C/g%3E%3C/svg%3E");
       backdrop-filter: blur(6px);
     }
 
@@ -162,31 +162,6 @@
     @keyframes cardReveal {
       from { opacity: 0; transform: scale(0.92) translateY(30px); }
       to { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    .welcome-card::before,
-    .welcome-card::after {
-      content: '';
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      opacity: 0.55;
-      background-size: contain;
-      background-repeat: no-repeat;
-      pointer-events: none;
-    }
-
-    .welcome-card::before {
-      top: 12px;
-      left: 12px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none'%3E%3Cpath d='M10 90 Q30 70 20 40 Q40 55 55 25 Q50 50 75 35 Q65 60 90 45 Q70 75 95 85 Q60 80 10 90Z' stroke='%23b8a88a' stroke-width='1.2' fill='none' opacity='0.5'/%3E%3Ccircle cx='55' cy='25' r='6' fill='%23ead9c8' opacity='0.6'/%3E%3Ccircle cx='20' cy='40' r='4' fill='%23c9a96e' opacity='0.4'/%3E%3Cpath d='M75 35 Q85 20 95 30' stroke='%23b8a88a' stroke-width='0.8'/%3E%3C/svg%3E");
-    }
-
-    .welcome-card::after {
-      bottom: 12px;
-      right: 12px;
-      transform: scaleX(-1) scaleY(-1);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none'%3E%3Cpath d='M10 90 Q30 70 20 40 Q40 55 55 25 Q50 50 75 35 Q65 60 90 45 Q70 75 95 85 Q60 80 10 90Z' stroke='%23b8a88a' stroke-width='1.2' fill='none' opacity='0.5'/%3E%3Ccircle cx='55' cy='25' r='6' fill='%23ead9c8' opacity='0.6'/%3E%3Ccircle cx='20' cy='40' r='4' fill='%23c9a96e' opacity='0.4'/%3E%3Cpath d='M75 35 Q85 20 95 30' stroke='%23b8a88a' stroke-width='0.8'/%3E%3C/svg%3E");
     }
 
     .welcome-eyebrow {
@@ -1078,8 +1053,8 @@
       <span class="petal"></span>
     </div>
     <div class="welcome-card">
-      <p class="welcome-eyebrow">Приглашение</p>
-      <h1 id="welcomeTitle">Даниил <span>&</span> Карина</h1>
+      <p class="welcome-eyebrow">Приглашение на свадьбу</p>
+      <h1 id="welcomeTitle">Даниила <span>&</span> Карины</h1>
       <p class="welcome-date">4 сентября 2026</p>
       <div class="welcome-divider" aria-hidden="true">✦</div>
       <p class="welcome-text">Мы будем счастливы разделить с вами самый нежный день нашей жизни</p>
@@ -1122,17 +1097,15 @@
       </section>
 
       <section class="card" data-aos="fade-up" data-aos-delay="150">
-        <span class="section-eyebrow">Приглашение</span>
-        <h2>Дорогие гости!</h2>
+        <span class="section-eyebrow"></span>
+        <h2>Дорогие!</h2>
         <div class="invitation-text">
-          <p>В нашей жизни произойдёт очень важное событие — наша свадьба! Мы верим и надеемся, что этот день станет
-            красивым началом долгой и счастливой жизни.</p>
-          <p>Самые важные «Да» в нашей жизни. И мы хотим, чтобы вы их услышали.</p>
+          <p>В этот важный для нас день мы с любовью приглашаем вас разделить с нами праздник - День нашей свадьбы.</p>
         </div>
       </section>
 
       <section class="card" data-aos="fade-up" data-aos-delay="100">
-        <span class="section-eyebrow">Расписание</span>
+        <span class="section-eyebrow"></span>
         <h2>Программа дня</h2>
         <div class="program-grid">
           <div class="program-item" data-aos="fade-up" data-aos-delay="50"><span class="time">15:15</span><span class="desc">Сбор гостей</span></div>
@@ -1144,7 +1117,7 @@
       </section>
 
       <section class="card" data-aos="fade-up" data-aos-delay="250">
-        <span class="section-eyebrow">Локация</span>
+        <span class="section-eyebrow"></span>
         <h2>Место проведения</h2>
         <div class="map-wrap">
           <iframe src="https://yandex.ru/map-widget/v1/?ll=38.812233,47.217525&pt=38.812233,47.217525,pm2rdl&z=17&l=map"
@@ -1161,7 +1134,7 @@
       </section>
 
       <section class="card" data-aos="fade-up" data-aos-delay="300">
-        <span class="section-eyebrow">Образ</span>
+        <span class="section-eyebrow"></span>
         <h2>Дресс-код</h2>
         <p class="dress-intro">Мы мечтаем о том, чтобы этот день стал настоящим праздником красоты, стиля и тёплых эмоций. Ваш образ станет важной
         частью атмосферы нашей свадьбы.</p>
@@ -1199,24 +1172,19 @@
         </div>
       </section>
 
-      <section class="card" data-aos="fade-up" data-aos-delay="350">
-        <span class="section-eyebrow">Тепло</span>
-        <h2>Ваши пожелания</h2>
-        <div class="wish-block">
-          <p>Самым большим подарком для нас станет возможность разделить этот день с вами. Если вы захотите поздравить нас ещё и
-          памятным подарком, мы будем искренне благодарны за ваш вклад в начало нашей семейной истории.</p>
-          
-        </div>
-      </section>
+      
 
       <section class="card" data-aos="fade-up" data-aos-delay="400">
-        <span class="section-eyebrow">Подарок</span>
-        <h2>Вместо букетов</h2>
-        <p class="gift-text">Будем рады альтернативе букетам — бутылочке вина или другого приятного напитка с запиской, когда её открыть.</p>
+        <span class="section-eyebrow"></span>
+        <h2>Детали</h2>
+        <p class="gift-text">Самым большим подарком для нас станет возможность разделить этот день с вами. Если вы захотите поздравить нас ещё и
+        памятным подарком, мы будем искренне благодарны за ваш вклад в начало нашей семейной истории.</p>
+        <p class="gift-text">Будем рады альтернативе букетам — бутылочке алкогольного или другого приятного напитка с запиской,
+          когда нам её открыть</p>
       </section>
 
       <section class="card" data-aos="fade-up" data-aos-delay="450">
-        <span class="section-eyebrow">RSVP</span>
+        <span class="section-eyebrow"></span>
         <h2>Подтвердите присутствие</h2>
         <form id="rsvpForm">
           <div class="form-group">
@@ -1232,29 +1200,6 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label>Уточните ваши предпочтения в алкоголе (можно выбрать несколько):</label>
-            <div class="checkbox-group">
-              <label><input type="checkbox" name="alcohol" value="Красное сухое"> Красное сухое</label>
-              <label><input type="checkbox" name="alcohol" value="Красное полусладкое"> Красное п/сл</label>
-              <label><input type="checkbox" name="alcohol" value="Белое сухое"> Белое сухое</label>
-              <label><input type="checkbox" name="alcohol" value="Белое полусладкое"> Белое п/сл</label>
-              <label><input type="checkbox" name="alcohol" value="Шампанское сухое"> Шампанское сухое</label>
-              <label><input type="checkbox" name="alcohol" value="Шампанское полусладкое"> Шампанское п/сл</label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="guestFood">Уточните ваши предпочтения в еде:</label>
-            <select id="guestFood" name="food">
-              <option value="Не выбрано">Выберите...</option>
-              <option value="Рыба">Рыба</option>
-              <option value="Мясо">Мясо</option>
-              <option value="Вегетарианское">Вегетарианское</option>
-              <option value="Не важно">Не важно</option>
-            </select>
-          </div>
-
           <button type="submit" class="submit-btn">Отправить</button>
           <div class="form-footnote">
             <strong>*</strong> Просим гостей, приходящих в паре, заполнять форму по отдельности.<br>
@@ -1264,7 +1209,7 @@
       </section>
 
       <section class="card" data-aos="fade-up" data-aos-delay="500">
-        <span class="section-eyebrow">Контакты</span>
+        <span class="section-eyebrow"></span>
         <h2>Остались вопросы?</h2>
         <div class="contacts-block">
           <p>Если у вас возникнут вопросы, связанные со свадьбой, а также если вы готовите сюрприз — вы всегда можете обратиться к нашему координатору.</p>
@@ -1374,18 +1319,10 @@
       var name = form.elements['name'].value.trim() || 'не указано';
       var attendingEl = form.querySelector('input[name="attending"]:checked');
       var attending = attendingEl ? attendingEl.value : 'не ответил';
-      var food = form.elements['food'].value || 'не выбрано';
-      var alcoholValues = Array.from(form.querySelectorAll('input[name="alcohol"]:checked')).map(function (cb) {
-        return cb.value;
-      });
-      var alcohol = alcoholValues.length ? alcoholValues.join(', ') : 'не выбран';
-
       var message =
         '🆕 Новое подтверждение на свадьбу!\n\n' +
         'Имя: ' + name + '\n' +
-        'Присутствие: ' + attending + '\n' +
-        'Алкоголь: ' + alcohol + '\n' +
-        'Еда: ' + food;
+        'Присутствие: ' + attending;
 
       var botToken = '8842430576:AAEYE-O3GzePlvCRmFIhmjkrhEIHK_zEom8';
       var chatId = '654058837';
@@ -1407,8 +1344,8 @@
             alert('Ошибка: ' + data.description);
           }
         })
-        .catch(function (err) {
-          alert('Ошибка: ' + err);
+        .catch(function () {
+          alert('Не удалось отправить форму. Пожалуйста, проверьте подключение к интернету или попробуйте VPN и отправьте снова.');
         });
     });
   </script>
